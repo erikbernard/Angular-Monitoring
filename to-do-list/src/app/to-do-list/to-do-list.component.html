@@ -1,0 +1,27 @@
+<section>
+    <input 
+        (change)="setTaskTitle($event)"
+        [value]="taskTitle" 
+        type="text"  
+        name="valueTodo"
+        id="valueTodo"
+        min="1"
+        required
+    >
+    <button (click)="addTask()">Adicionar</button>
+
+    <div *ngIf="taskList.length === 0 ">Não possui tarefa cadastrada</div>
+
+    <ul>
+        <li 
+            [ngClass]="{ 
+                'green' : taskList.length <= 3,
+                'yellow' : taskList.length > 3,
+                'red' : taskList.length > 7
+            }"
+            *ngFor="let taskItem of taskList"
+        >{{taskItem}}
+        <button (click)="removeTask(taskItem)">remover</button>
+    </li>
+    </ul>
+</section>
