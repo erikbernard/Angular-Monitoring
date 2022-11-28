@@ -1,0 +1,14 @@
+<div class="container">
+    <form #form="ngForm" (ngSubmit)="displayValues()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input class="form-control" type="text" name="name" placeholder="Nome" [(ngModel)]="name" required
+                minlength="4" #fieldName="ngModel">
+            <div class="badge text-bg-danger" *ngIf="fieldName.invalid && (fieldName.touched || fieldName.dirty)">
+                <div *ngIf="fieldName.errors?.['required']">Campo Obrigatório</div>
+                <div *ngIf="fieldName.errors?.['minlength']">Minimo 4 caracteres</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Enviar</button>
+    </form>
+</div>

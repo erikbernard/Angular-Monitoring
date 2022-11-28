@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input  class="form-control"  type="text" formControlName="name" placeholder="Nome">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('name')">
+                {{getError("name")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input class="form-control" type="text" formControlName="email" placeholder="E-mail">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('email')">
+                {{getError("email")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="cpf" class="form-label">CPF</label>
+            <input class="form-control" type="text" formControlName="cpf" placeholder="CPF" mask="000.000.000-00">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('cpf')">
+                {{getError("cpf")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input class="form-control" type="password" formControlName="password"  placeholder="Senha"  id="password">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('password')">
+                {{getError("password")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirma senha</label>
+            <input class="form-control" type="password" formControlName="confirmPassword" placeholder="Confirma senha"  id="confirmPassword">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('confirmPassword')">
+                {{getError("confirmPassword")}}
+            </div>
+        </div>
+        <button  class="btn btn-primary" (click)="displayValues()" [disabled]="form.invalid">Enviar</button>
+    </form>
+</div>
