@@ -1,14 +1,52 @@
-<div class="d-flex justify-content-around">
-    <div class="card ">
-        <h5 class="card-header">Template Driven</h5>
-        <div class="card-body">
-            <app-form-template-driven></app-form-template-driven>
+<br />
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link " [ngClass]="{'active' : isACtive}" id="nav-training-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-training" type="button" role="tab" aria-controls="nav-training" aria-selected="true"
+            (click)="isACtive = !isACtive">Desenvolvido na Aula</button>
+        <button class="nav-link" [ngClass]="{'active' : !isACtive}" id="nav-challenge-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-challenge" type="button" role="tab" aria-controls="nav-challenge" aria-selected="false"
+            (click)="isACtive = !isACtive">Desafio</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <Br />
+    <div class="tab-pane fade " [ngClass]="{'show active' : isACtive}" id="nav-training" role="tabpanel"
+        aria-labelledby="nav-training-tab" tabindex="0">
+        <div class="d-flex justify-content-around">
+            <div class="card ">
+                <h5 class="card-header">Template Driven</h5>
+                <div class="card-body">
+                    <app-form-template-driven></app-form-template-driven>
+                </div>
+            </div>
+            <div class="card ">
+                <h5 class="card-header">Data Driven</h5>
+                <div class="card-body">
+                    <app-form-data-driven></app-form-data-driven>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card ">
-        <h5 class="card-header">Data Driven</h5>
-        <div class="card-body">
-            <app-form-data-driven></app-form-data-driven>
+    <div class="tab-pane fade  " [ngClass]="{'show active' : !isACtive}" id="nav-challenge" role="tabpanel"
+        aria-labelledby="nav-challenge-tab" tabindex="0">
+        <div class="container">
+
+            <div class="row">
+                <div class="card col-4">
+                    <h5 class="card-header">Formulário de filmes</h5>
+                    <div class="card-body">
+                        <app-form-movie (sumitForm)="setFormValue($event)"></app-form-movie>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="card col-7">
+                    <h5 class="card-header">Tabela de filmes</h5>
+                    <div class="card-body">
+                        <app-table [movieList]="movieList"></app-table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

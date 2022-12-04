@@ -1,0 +1,29 @@
+<div class="container">
+    <form [formGroup]="formMovie">
+        <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input  class="form-control"  type="text" formControlName="title" placeholder="Ex: Avenger...">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('title')">
+                {{getError("title")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="genre">Gênero do filme</label>
+            <select class="form-control"  id="genre" formControlName="genre">
+              <option value="" selected hidden>Selecione</option>
+              <option *ngFor="let genre of ListGenres" [value]="genre">{{genre}}</option>
+            </select>
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('genre')">
+                {{getError("genre")}}
+            </div>
+          </div>
+        <div class="mb-3">
+            <label for="releaseDate" class="form-label">Data de lançamento</label>
+            <input class="form-control" type="text" formControlName="releaseDate" placeholder="Ex: 11/11/2021" mask="00/00/0000">
+            <div class="badge text-bg-danger bg" *ngIf="isFieldInvalid('releaseDate')">
+                {{getError("releaseDate")}}
+            </div>
+        </div>
+        <button  class="btn btn-primary" (click)="displayValues()"  [disabled]="formMovie.invalid">Enviar</button>
+    </form>
+</div>
