@@ -1,4 +1,4 @@
-<br />
+<!-- <br />
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link " [ngClass]="{'active' : isACtive}" id="nav-training-tab" data-bs-toggle="tab"
@@ -49,4 +49,33 @@
             </div>
         </div>
     </div>
+</div> -->
+<app-navbar></app-navbar>
+<div class="container">
+<router-outlet></router-outlet>
+    <!-- <app-form-user #formUser (registeredUser)="updateTable(table)"></app-form-user>
+    <app-table-user #table (editUser)="updateForm(formUser, $event)"></app-table-user> -->
 </div>
+
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Formulário de Cadastro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <app-form-user ></app-form-user>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fecha</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="my-3">Login</h1>
+    <form [formGroup]="LoginForm">
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input class="form-control" type="text" formControlName="email" placeholder="E-mail" [ngClass]="{'is-invalid': isFieldInvalid('email')}">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('email')">
+                {{getError("email")}}0
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input  class="form-control"  type="password" formControlName="password" placeholder="Senha" [ngClass]="{'is-invalid': isFieldInvalid('password')}">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('password')">
+                {{getError("password")}}
+            </div>
+        </div>
+        <button  class="btn btn-primary" (click)="LoginUser()" [disabled]="LoginForm.invalid">Entrar</button>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="my-3">{{ userId ? 'Formulário de Edição' : 'Formulário de Usuário'}}</h1>
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input  class="form-control"  type="text" formControlName="name" placeholder="Nome" [ngClass]="{'is-invalid': isFieldInvalid('name')}">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('name')">
+                {{getError("name")}}
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input class="form-control" type="text" formControlName="email" placeholder="E-mail" [ngClass]="{'is-invalid': isFieldInvalid('email')}">
+            <div class="badge text-bg-danger" *ngIf="isFieldInvalid('email')">
+                {{getError("email")}}0
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="birthDate" class="form-label">Data de Nascimento</label>
+            <input class="form-control" type="date" formControlName="birthDate" placeholder="Ex: 11/11/2021" [ngClass]="{ 'is-invalid': isFieldInvalid('birthDate')}">
+            <div class="badge text-bg-danger bg" *ngIf="isFieldInvalid('birthDate')">
+                {{getError("birthDate")}}
+            </div>
+        </div>
+        <button  class="btn btn-primary" (click)="registerUser()" [disabled]="form.invalid">{{ userId ? 'Editar Usuário' : 'Cadastrar Usuário'}}</button>
+        <button type="button" class="btn btn-outline-primary ms-3" (click)="this.form.reset();">Limpar Formulário</button>
+    </form>
+</div>
